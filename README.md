@@ -10,7 +10,7 @@ This solution can be helpful in such situation you need to run this jar file and
 `http://localhos:4567/devices`
 <br>
 
-RESPONSE <br>
+### RESPONSE <br>
 ```
 {
     "status": "SUCCESS",
