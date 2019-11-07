@@ -1,15 +1,16 @@
 # basic-appium-capabilities
 REST API for getting appium capabilities of connected devices
 
-##Description
+## Description
 Finiding appium capabilities like `deviceName`,`platformVersion` and `udid` e.t.c is extremely painful, and it becomes more challenging when your device(s) is connected to some remote machine whose bash/terminal is not accessbile to you!
 
 This solution can be helpful in such situation you need to run this jar file and make an http request for example:
 
-REQUEST
+### REQUEST <br>
 `http://localhos:4567/devices`
+<br>
 
-RESPONSE
+RESPONSE <br>
 ```
 {
     "status": "SUCCESS",
