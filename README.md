@@ -7,7 +7,7 @@ Finiding appium capabilities like `deviceName`,`platformVersion` and `udid` e.t.
 This solution can be helpful in such situation you need to run [this jar](output/basic-appium-capabilities-1.0.jar) file and make an http request for example:
 
 ### REQUEST <br>
-`http://localhos:4567/devices`
+`http://localhost:4567/devices`
 <br>
 
 ### RESPONSE <br>
