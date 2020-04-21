@@ -1,7 +1,7 @@
 package services.implementations
 
 import models.TestDevice
-import main.java.services.DeviceService
+import services.DeviceService
 
 class DeviceServiceImplementation : DeviceService {
     override fun getDevices(): Collection<TestDevice> {

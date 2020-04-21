@@ -14,7 +14,7 @@ object Main {
 
         get("/devices") { _, res ->
             res.type("application/json")
-            val response = deviceService.devices
+            val response = deviceService.getDevices()
             if (response.isNotEmpty()) JSON.toJson(Response(Status.SUCCESS, JSON.toJsonTree(response)))
             else JSON.toJson(Response(Status.ERROR, "not active devices connected"))
         }

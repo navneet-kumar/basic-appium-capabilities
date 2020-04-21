@@ -38,7 +38,7 @@ object Utility {
         }
 
         val res = StringUtils.strip(response.toString(), System.getProperty("line.separator"))
-        logger.print("Command line response - $res")
+        logger.print("Got command line response.")
         return res
     }
 
