@@ -32,7 +32,7 @@ object TestDeviceManager {
                 (iosDevices[entry.key] as JsonArray).forEach {
                     val d = it as JsonObject
                     if (d["state"].asString == "Booted")
-                        listOfiOSDevices.plus(
+                        listOfiOSDevices = listOfiOSDevices.plus(
                                 TestDevice(
                                         deviceName = d["name"].asString,
                                         platformName = "IOS",
