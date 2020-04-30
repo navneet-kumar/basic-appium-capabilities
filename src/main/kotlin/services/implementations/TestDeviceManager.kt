@@ -45,7 +45,7 @@ object TestDeviceManager {
         // fetch active real devices
         Utility.execute("instruments", "-s", "devices").split("\n").forEach {
             if (!it.contains("(Simulator)") && ".*\\(.*\\)\\s\\[.*\\]".toRegex().matches(it)) {
-                listOfiOSDevices.plus(
+                listOfiOSDevices = listOfiOSDevices.plus(
                         TestDevice(
                                 deviceName = Regex("(.*?)\\(").find(it)!!.groups[1]!!.value,
                                 platformVersion = Regex("\\((.*?)\\)").find(it)!!.groups[1]!!.value,

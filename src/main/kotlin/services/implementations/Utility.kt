@@ -15,7 +15,7 @@ object Utility {
      * @return String, output of command if none empty string is returned
      */
     fun execute(vararg cmd: String): String {
-        logger.print("executing command line - '${cmd.joinToString(",")}'")
+        logger.println("executing command line - '${cmd.joinToString(",")}'")
         val response = StringBuilder()
         try {
             val processBuilder = ProcessBuilder(*cmd)
@@ -38,7 +38,8 @@ object Utility {
         }
 
         val res = StringUtils.strip(response.toString(), System.getProperty("line.separator"))
-        logger.print("Got command line response.")
+        logger.println("Got command line response.")
+        logger.println(res)
         return res
     }
 
