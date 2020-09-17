@@ -46,6 +46,9 @@ class LanguageServiceImplementation : LanguageService {
             // create session
             val driver = IOSDriver<MobileElement>(appium.url, iOSCapabilities.merge(DesiredCapabilities(device)))
 
+            // remove any pops
+            driver.switchTo().alert().dismiss()
+
             // check existing language
             val header = driver.findElementByClassName("XCUIElementTypeNavigationBar")
             if (header.text != TranslationExtension.Settings.value(Locale.JAPAN))
