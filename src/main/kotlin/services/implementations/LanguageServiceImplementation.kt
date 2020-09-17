@@ -49,8 +49,8 @@ class LanguageServiceImplementation : LanguageService {
             // remove any pops
             try {
                 driver.switchTo().alert().dismiss()
-            } catch (e: NoSuchElementException) {
-                println("No popup found")
+            } catch (e: Exception) {
+                println(e.localizedMessage)
             }
 
             // check existing language
@@ -78,23 +78,12 @@ class LanguageServiceImplementation : LanguageService {
             btnIphoneLanguage.click()
 
             // Check on english language
-            val options = driver.findElementsByClassName("XCUIElementTypeCell")
-            options.forEach { item ->
-                val elements = item.findElementsByClassName("XCUIElementTypeStaticText")
-                val element = elements.find { it.text === "English" }
-                if (element != null) {
-                    item.click()
-                    return@forEach
-                }
-            }
+            val optionEnglish = driver.findElementByXPath("//XCUIElementTypeStaticText[@name=\"${TranslationExtension.TargetLanguage.value(Locale.US)}\"]")
+            optionEnglish.click()
 
             // confirm language
-            val BtnConfirm = driver.findElementByXPath("//XCUIElementTypeButton[@name=\"${TranslationExtension.BtnChange.value(Locale.JAPAN)}\"]")
-            BtnConfirm.click()
-
-            // kill app
-            Thread.sleep(4000)
-            driver.terminateApp(iOSCapabilities.asMap()["bundleId"] as String)
+            val btnConfirm = driver.findElementByXPath("//XCUIElementTypeButton[@name=\"${TranslationExtension.BtnChange.value(Locale.JAPAN)}\"]")
+            btnConfirm.click()
 
             Response(Status.SUCCESS, "Language changed Successfully !")
         } catch (ex: Exception) {
