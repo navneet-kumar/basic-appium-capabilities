@@ -47,7 +47,11 @@ class LanguageServiceImplementation : LanguageService {
             val driver = IOSDriver<MobileElement>(appium.url, iOSCapabilities.merge(DesiredCapabilities(device)))
 
             // remove any pops
-            driver.switchTo().alert().dismiss()
+            try {
+                driver.switchTo().alert().dismiss()
+            } catch (e: NoSuchElementException) {
+                println("No popup found")
+            }
 
             // check existing language
             val header = driver.findElementByClassName("XCUIElementTypeNavigationBar")
