@@ -82,8 +82,11 @@ class LanguageServiceImplementation : LanguageService {
             optionEnglish.click()
 
             // confirm language
-            val btnConfirm = driver.findElementByXPath("//XCUIElementTypeButton[@name=\"${TranslationExtension.BtnChange.value(Locale.JAPAN)}\"]")
-            btnConfirm.click()
+            try {
+                driver.switchTo().alert().accept()
+            } catch (e: Exception) {
+                println(e.localizedMessage)
+            }
 
             Response(Status.SUCCESS, "Language changed Successfully !")
         } catch (ex: Exception) {
